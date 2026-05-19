@@ -1,205 +1,164 @@
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 <style>
-    /* Mobile Container styling specific for embedding */
-    .custom-container {
-        background-color: #ffffff;
-        width: 100%;
-        max-width: 450px;
-        margin: 0 auto;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        text-align: center;
-        border: 1px solid #eee;
-        padding-bottom: 30px;
-    }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
 
-    /* Top Blue Banner */
-    .top-banner {
-        background-color: #1976D2;
-        color: white;
-        padding: 15px 10px;
-    }
+  .card {
+    width: 85%;
+    max-width: 340px; 
+    background: #010a0f;
+    border: 1.5px solid #00d2ff;
+    border-radius: 35px;
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
+  }
 
-    .top-banner h2 {
-        font-size: 18px;
-        font-weight: 700;
-        margin: 0 0 5px 0;
-        line-height: 1.2;
-    }
+  .profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #00d2ff;
+    object-fit: cover;
+    margin-top: -5px;
+    box-shadow: 0 0 15px #00d2ff;
+  }
 
-    .top-banner p {
-        font-size: 12px;
-        margin: 0;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+  h1 {
+    color: #fff;
+    font-size: 20px;
+    margin: 15px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-    /* Profile Image */
-    .profile-section {
-        padding: 20px 0;
-    }
+  .features {
+    text-align: left;
+    margin: 0 auto;
+    width: 90%;
+  }
 
-    .profile-img {
-        width: 140px;
-        height: 140px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 4px solid #fff;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        background-color: #ddd; 
-    }
+  .feature-item {
+    color: #ccc;
+    font-size: 13px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+  }
 
-    /* Main Heading */
-    .main-heading {
-        color: #c0392b;
-        font-size: 24px;
-        font-weight: bold;
-        margin: 10px 0 20px 0;
-        text-transform: uppercase;
-        font-family: 'Georgia', serif;
-        line-height: 1.2;
-    }
+  .feature-item:last-child { border-bottom: none; }
 
-    /* Features List */
-    .features-list {
-        list-style: none;
-        padding: 0 20px;
-        text-align: left;
-        margin-bottom: 25px;
-    }
+  .icon { margin-right: 12px; font-size: 16px; }
 
-    .features-list li {
-        margin-bottom: 15px;
-        font-size: 15px;
-        color: #333;
-        line-height: 1.4;
-        display: flex;
-        align-items: flex-start;
-    }
+  .join-text {
+    color: #eee;
+    font-size: 12px;
+    margin: 20px 0 12px;
+    font-weight: 300;
+  }
 
-    .check-icon {
-        margin-right: 10px;
-        font-size: 18px;
-    }
+  .telegram-btn {
+    display: block;
+    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
+  }
 
-    /* Loss Text */
-    .loss-text {
-        color: #333;
-        font-weight: 600;
-        font-size: 15px;
-        padding: 0 20px;
-        margin-bottom: 20px;
-    }
+  .hindi-quote {
+    color: #bbb;
+    font-size: 13px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
 
-    .highlight-green {
-        color: #27ae60;
-        font-weight: bold;
-    }
+  .footer-box {
+    border: 1px solid rgba(0, 210, 255, 0.2);
+    border-radius: 12px;
+    padding: 8px;
+    font-size: 11px;
+    color: #888;
+  }
 
-    /* --- BUTTON STYLES WITH ANIMATION --- */
-    .btn-container {
-        padding: 0 20px;
-        display: flex;
-        justify-content: center;
-    }
+  /* Link styling for Agency */
+  .footer-box a { 
+    color: #00d2ff; 
+    font-weight: bold; 
+    text-decoration: none;
+  }
 
-    /* Animation Keyframes */
-    @keyframes pulse-blue {
-        0% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(25, 118, 210, 0.7);
-        }
-        70% {
-            transform: scale(1.05);
-            box-shadow: 0 0 0 15px rgba(25, 118, 210, 0);
-        }
-        100% {
-            transform: scale(1);
-            box-shadow: 0 0 0 0 rgba(25, 118, 210, 0);
-        }
-    }
-
-    .custom-cta-button {
-        display: block;
-        width: 100%;
-        background-color: #1976D2;
-        color: white !important;
-        text-decoration: none;
-        padding: 15px;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        /* Yahan Animation lagaya hai */
-        animation: pulse-blue 2s infinite; 
-    }
-
-    .custom-cta-button:hover {
-        background-color: #1565c0;
-        animation: none; /* Mouse le jaane par animation ruk jayega */
-        transform: scale(1.05); /* Thoda bada ho jayega */
-    }
-
-    .sub-text {
-        display: block;
-        font-size: 11px;
-        margin-top: 5px;
-        font-weight: normal;
-        opacity: 0.9;
-    }
-
-    /* Footer */
-    .footer-text {
-        margin-top: 25px;
-        color: #27ae60;
-        font-weight: bold;
-        font-size: 18px;
-        letter-spacing: 1px;
-    }
-
-    .separator {
-        height: 1px;
-        background-color: #ccc;
-        margin: 20px auto;
-        width: 90%;
-    }
+  .disclaimer {
+    font-size: 9px;
+    color: #444;
+    margin-top: 12px;
+  }
 </style>
+</head>
+<body>
 
-<div class="custom-container">
-    <div class="top-banner">
-        <h2>JOIN OUR FREE TELEGRAM</h2>
-        <p>SUBSCRIBE NOW</p>
-    </div>
+<div class="card">
+  <img src="https://i.ibb.co/gbPn8Zkr/l3et-M0at-Dy-Ph-Rto-Z7gkj-OZ78ksoecyo-SHh-Syxr-VZwaa-GEt-UE-ldm-Nv-C7u-RC-Ukl-PUy-BNg0f-MF0-NEXO9fw-A.jpg" alt="Deepak Wadhwa" class="profile-img">
 
-    <div class="profile-section">
-        <img src="https://via.placeholder.com/150" alt="Profile" class="profile-img">
-    </div>
+  <h1>TRADE WITH GUPTA</h1>
 
-    <h1 class="main-heading">TRADE WITH KAROL</h1>
+  <div class="features">
+    <div class="feature-item"><span class="icon">🌐</span> Learning & Educational Sessions</div>
+    <div class="feature-item"><span class="icon">📊</span> Market Concepts & Awareness</div>
+    <div class="feature-item"><span class="icon">💎</span> Chart Reading Concepts</div>
+    <div class="feature-item"><span class="icon">💻</span> Educational Case Discussions</div>
+  </div>
 
-    <ul class="features-list">
-        <li><span class="check-icon">✅</span>Daily Market Insights (Educational Only)</li>
-        <li><span class="check-icon">✅</span>Learn Stock Market Basics & Concepts</li>
-        <li><span class="check-icon">✅</span>10+ Years of Market Learning Experience</li>
-        <li><span class="check-icon">✅</span>Daily Nifty & BankNifty Levels</li>
-        <li><span class="check-icon">✅</span>No Paid Tips - Purely Educational</li>
-    </ul>
+  <p class="join-text">Join our learning community and grow your knowledge</p>
 
-    <div class="loss-text">
-        <span class="check-icon">✅</span>ARE YOU FACING LOSSES OR WANT TO
-        <br><br>
-        <span class="check-icon">✅</span><span class="highlight-green">RECOVER YOUR LOSSES?</span>
-    </div>
+  <a href="https://t.me/+8-VGcdcEJyBlYjI1" class="telegram-btn">JOIN TELEGRAM</a>
 
-    <div class="btn-container">
-        <a href="https://t.me/YOUR_LINK_HERE" class="custom-cta-button" target="_blank">
-            JOIN OUR FREE TELEGRAM
-            <span class="sub-text">SUBSCRIBE NOW</span>
-        </a>
-    </div>
+  <p class="hindi-quote">नियत अच्छी और मेहनत सच्ची हो, तो कामयाबी जरूर मिलती है।</p>
 
-    <div class="separator"></div>
+  <div class="footer-box">
+    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
+  </div>
 
-    <div class="footer-text">
-        !!HURRY UP!!
-    </div>
+  <div class="disclaimer">
+    Terms | Privacy | Disclaimer <br>
+    This site is not part of Facebook™ or endorsed by Facebook™.
+  </div>
 </div>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1004820565221162');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1004820565221162&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code --></body>
+</html>
